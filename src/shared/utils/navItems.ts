@@ -11,4 +11,11 @@ export const navItems = [
     path: '/people',
     icon: 'people',
   },
+
+  {
+    id: 3,
+    title: 'Form',
+    path: '/form',
+    icon: 'forms',
+  },
 ];

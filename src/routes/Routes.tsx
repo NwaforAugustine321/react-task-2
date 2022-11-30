@@ -39,6 +39,7 @@ import { CreateProjectMain, Projects } from 'Containers/Projects';
 import { People } from 'Containers/People';
 import { Crew } from 'Containers/Crew';
 import { Project } from 'Containers/Project';
+import { ContractFormContainer } from 'Containers/ContractForm/ContractForm';
 import { Account, About } from 'Containers/User';
 import { ProjectData } from 'Containers/ProjectData';
 import { RocketDry } from 'Containers/RocketDry';
@@ -146,6 +147,15 @@ const ProjectsRoute = () => (
   <DashboardWrapper>
     <ProjectsProvider>
       <Projects />
+    </ProjectsProvider>
+  </DashboardWrapper>
+);
+
+// Form related routes
+const FormRoute = () => (
+  <DashboardWrapper>
+    <ProjectsProvider>
+      <ContractFormContainer />
     </ProjectsProvider>
   </DashboardWrapper>
 );
@@ -332,6 +342,9 @@ export const Routes = () => (
       <PrivateRoute exact path="/projects/create" render={CreateProjectRoute} />
       <PrivateRoute exact path="/projects/editAddress" render={EditAddressRoute} />
       <PrivateRoute exact path="/projects" render={ProjectsRoute} />
+
+      <PrivateRoute exact path="/form" render={FormRoute} />
+
       <PrivateRoute exact path="/projects/projectDashboard" render={ProjectRoute} />
       <PrivateRoute exact path="/projects/photoManagement/addLocations" render={ProjectPhotoManagementRoute} />
       <PrivateRoute exact path="/projects/photoManagement/allLocations" render={ProjectPhotoManagementRoute} />

@@ -50,6 +50,7 @@ import { FunnelSvg } from './Funnel';
 import { LogoIconSvg } from './LogoIcon';
 import { DashboardSvg } from './Dashboard';
 import { ProjectsSvg } from './Projects';
+import { FormSvg } from './Forms';
 import { PeopleSvg, PeoplePinkSvg } from './People';
 import { ThreeDotsSvg } from './ThreeDots';
 import { PlusSvg } from './Plus';
@@ -131,6 +132,7 @@ interface Props {
 
 const getIcon = (type, className, id, fill, onClick, onKeyUp) => {
   const icons = {
+    forms: <FormSvg onClick={onClick} onKeyUp={onKeyUp} className={className} fill={fill} />,
     logo: <LogoSvg onClick={onClick} onKeyUp={onKeyUp} className={className} />,
     logoicon: <LogoIconSvg onClick={onClick} onKeyUp={onKeyUp} className={className} />,
     logomobile: <LogoMobileSvg onClick={onClick} onKeyUp={onKeyUp} className={className} />,

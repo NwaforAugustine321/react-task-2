@@ -21,6 +21,7 @@ interface CssClasses {
 interface Props {
   // Attributes
   children: ReactNode;
+  titleIcon?: boolean;
   classes?: CssClasses;
   id?: string;
   title: string;
@@ -52,6 +53,7 @@ const Modal = ({
   modalHeader,
   leftHeaderIcon,
   modalFooter,
+  titleIcon,
   useCircleCloseButton = false,
   footerButtons,
   modalOpen,
@@ -117,9 +119,9 @@ const Modal = ({
         <div className={`modal-content ${classes?.modalContent ? classes?.modalContent : ''}`}>
           {modalHeader && (
             <div className={`modal-header ${classes?.modalHeader ? classes?.modalHeader : ''}`}>
-              {leftHeaderIcon && <Icon type={leftHeaderIcon} onClick={onLeftHeaderIconClick} />}
+              {leftHeaderIcon && !titleIcon ? <Icon type={leftHeaderIcon} onClick={onLeftHeaderIconClick} /> : <></>}
               <h5 className={`modal-title ${classes?.modalTitle ? classes?.modalTitle : ''}`} id={id}>
-                {title}
+                {titleIcon && <Icon type={leftHeaderIcon} onClick={onLeftHeaderIconClick} />} {title}
               </h5>
               <a href="#" role="button" onClick={onModalOpeCloseClick} aria-label="Close">
                 <Icon type="modalClose" />
@@ -169,6 +171,7 @@ Modal.defaultProps = {
   footerButtons: undefined,
   dataBsBackdrop: 'static',
   dataBsKeyboard: 'false',
+  titleIcon: undefined,
   toast: undefined,
 };
 
