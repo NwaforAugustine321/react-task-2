@@ -35,10 +35,6 @@ const createTabs = (activeTab: string, onTabClick: (e: any) => void) => (
   </>
 );
 
-/*
-  In order to override bootstraps active class on tabs, there is a click event onTabClick, which will get the name of the tab that was clicked
-  and then trigger a re-render.  Note in the createTabs method above, where the active class is added or not, based on which tab was clicked.
-*/
 const ContractFormsTabMenu = ({ id = 'tabs', className, children, modalCloseClick }: Props) => {
   // We want to set the initial active tab to the first tab in the incoming tabList
   const [activeTab, setActiveTab] = useState('my-form-tab');
@@ -69,7 +65,7 @@ const ContractFormsTabMenu = ({ id = 'tabs', className, children, modalCloseClic
               <p className={classes.title}>Form Templates</p>
               <OutlineButton onClick={modalCloseClick} className={classes.roundButton}>
                 <span>Add</span>
-                <Icon type="plus" fill="#9a00ff" className={classes.plus} />
+                <Icon type="plus" fill="#9a00ff" />
               </OutlineButton>
             </div>
             <div className="tab-content w-100 h-100 d-inline-block" id="myTabContent" style={{ height: 'auto' }}>

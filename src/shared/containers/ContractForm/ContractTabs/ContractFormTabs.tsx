@@ -16,6 +16,14 @@ import classes from './contractFormTabs.module.css';
 //   onClickRow?: (e: any) => void;
 // }
 
+const defaultFormType = {
+  company_id: '28',
+  name: '',
+  replacement_tags: '',
+  status: 'active',
+  template: '',
+  has_signature: false,
+};
 const ContractFormTabsContainer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDelete, setDelete] = useState(false);
@@ -24,14 +32,7 @@ const ContractFormTabsContainer = () => {
   const [check, setCheck] = useState(false);
   const [deleteID, setdeleteID] = useState();
   const [created, setCreated] = useState(false);
-  const [data, setData] = useState({
-    company_id: '28',
-    name: '',
-    replacement_tags: '',
-    status: 'active',
-    template: '',
-    has_signature: false,
-  });
+  const [data, setData] = useState(defaultFormType);
 
   const fetch = async () => {
     setFetching(true);
@@ -51,7 +52,7 @@ const ContractFormTabsContainer = () => {
     setCreated(!created);
   };
 
-  const updateForm = (value, key) => {
+  const updateForm = (value: string | boolean, key: string) => {
     if (key === 'has_signature') {
       setCheck(!check);
       data[key] = !check;
@@ -121,7 +122,6 @@ const ContractFormTabsContainer = () => {
       {isDelete && (
         <DeleteContractModal
           isOpen={isDelete}
-          currentProjectInfo="123456"
           onCloseClick={() => {
             setDelete(!isDelete);
           }}

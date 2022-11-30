@@ -9,11 +9,10 @@ import classes from './deleteContractModal.module.css';
 
 interface Props {
   isOpen: boolean;
-  currentProjectInfo?: any;
   onCloseClick: (e: any) => void;
   onDeleteClick: (e: any) => void;
 }
-const DeleteContractModal = ({ isOpen, currentProjectInfo, onCloseClick, onDeleteClick }: Props) => (
+const DeleteContractModal = ({ isOpen, onCloseClick, onDeleteClick }: Props) => (
   <Modal
     titleIcon={false}
     leftHeaderIcon="forms"
@@ -28,7 +27,7 @@ const DeleteContractModal = ({ isOpen, currentProjectInfo, onCloseClick, onDelet
     modalCloseClick={onCloseClick}
   >
     <div className={classes.text}>
-      {currentProjectInfo && <div className={classes.message}>Are you sure you want to delete the form ?</div>}
+      <div className={classes.message}>Are you sure you want to delete the form ?</div>
     </div>
 
     <div className={classes.buttonRow}>
@@ -42,9 +41,7 @@ const DeleteContractModal = ({ isOpen, currentProjectInfo, onCloseClick, onDelet
   </Modal>
 );
 
-DeleteContractModal.defaultProps = {
-  currentProjectInfo: undefined,
-};
+DeleteContractModal.defaultProps = {};
 
 const DeleteContractModalMemo = memo(DeleteContractModal, areEqual);
 

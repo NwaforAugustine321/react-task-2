@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { areEqualShallow } from 'Utils/equalityChecks';
 
-import Form from '../../../Assets/projects.svg';
+import Form from '../../../Assets/forms.svg';
 
 // Custom css
 import classes from './form.module.css';
